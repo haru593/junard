@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact us</title>
+    <style>
+        body {
+          background-image: url(3.jpg);
+          background-color: #064405;
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+          color: black;
+          font-family: 'Arial', sans-serif;
+          margin: 0;
+          padding: 0;
+        }
+        .details {
+            text-align: center;
+            margin: 10px;
+            padding: 20px;
+            line-height: 1.5;
+        }
+        .answers {
+            width: 25%;
+            margin: 10px;
+            background-color: rgb(255, 255, 255);
+            border: 1px solid; 
+            padding: 10px;
+            font-size: 13px;
+        }
+        .binary, .decimal, .hexadecimal, .octal {
+            width: 20%;
+            margin: 10px;
+            background-color: rgb(255, 255, 255);
+            border: 1px solid; 
+            padding: 10px;
+            font-size: 15px;
+        }
+        input[type="text"] {
+            width: 200px;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        .main
+        {
+            text-align: left;
+            border: 1px solid #000000;
+            padding: 20px;
+            margin: 5px;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        .home
+        {
+            border: 1px solid;
+            padding: 10px;
+            background-color: white;
+            text-align: center;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="details">
+        <div class="home">
+            <nav>
+                <ul>
+                    <a href="index.html">Home</a>
+                    <a href= "website.html"> Conversion</a>
+                    <a href= "about.html"> About</a>
+                    <a href="contact.html">Contact</a>
+                    
+                </ul>
+            </nav>
+             </div>
+        <div class="main">
+             <p>Do you have any suggestions to improve the conversion or bugs that you saw when you where converting? If so please don't hesitate to contact us</p>
+             <p>@Email - conversion143@gmc.com </p>
+             <p>@Phone - (+63) 93344567314 </p>
+             <p>We are always open with feedbacks as it can improve the work and help everyone do a better job everyday.</p>
+        </div>             
+    </div>
+    <script>
+        function decimalToOthers(decimal) {
+            return {
+                binary: (decimal >>> 0).toString(2),                                                                                                                                                                                                                                                                                                                                                                                 
+                hexadecimal: decimal.toString(16).toUpperCase(), 
+                octal: (decimal >>> 0).toString(8),       
+            };
+        }
+
+        document.getElementById('inputNumber').addEventListener('input', function() {
+            var inputNumber = document.getElementById('inputNumber').value;
+            var decimalValue = parseInt(inputNumber, 10);
+
+            if (isNaN(decimalValue)) {
+                document.getElementById('binaryResult').textContent = 'N/A';
+                document.getElementById('decimalResult').textContent = 'N/A';
+                document.getElementById('hexadecimalResult').textContent = 'N/A';
+                document.getElementById('octalResult').textContent = 'N/A';
+                return;
+            }
+
+            var convertedValues = decimalToOthers(decimalValue);
+
+            document.getElementById('binaryResult').textContent = convertedValues.binary;
+            document.getElementById('decimalResult').textContent = decimalValue;
+            document.getElementById('hexadecimalResult').textContent = convertedValues.hexadecimal;
+            document.getElementById('octalResult').textContent = convertedValues.octal;
+        });
+    </script>
+</body>
+</html>
